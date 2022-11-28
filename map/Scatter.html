@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        #para{
+            text-align: center;
+            }
+            #Tabs
+{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    margin: 1px;
+    padding: 6px 6px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+}
+    </style>
+
+    <div id="para">
+        <button id = "Tabs" onclick="window.location.href='./Home.html'">Home</button>
+        <button id = "Tabs" onclick="window.location.href='./Lineplot.html'">Interactive Line Graph</button>
+        <button id = "Tabs" onclick="window.location.href='./Project3.html'">Multiview Spatial Plot</button>
+    </div>
+
+</head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css" integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js" integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/colorbrewer.v1.min.js"></script>
+    <script src="data.js"></script>
+    <script src="ScatterPlot.js"></script>
+
+
+<body>
+    <div id = "scatter">
+    </div>
+    
+</body>
+
+</html>

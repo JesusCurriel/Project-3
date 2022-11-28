@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <style>
+        #para{
+            text-align: center;
+            }
+            #Tabs
+{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    margin: 1px;
+    padding: 6px 6px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+}
+    </style>
+
+    <div id="para">
+        <button id = "Tabs" onclick="window.location.href='./Home.html'">Home</button>
+        <button id = "Tabs" onclick="window.location.href='./Lineplot.html'">Interactive Line Graph</button>
+        <button id = "Tabs" onclick="window.location.href='./Scatter.html'">Scatter Matrix</button>
+    </div>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css" integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js" integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/colorbrewer.v1.min.js"></script>
+    <script src="data.js"></script>
+    <script src="Button.js" defer></script>
+    <script src="us-states.js"></script>
+    <script src= "bar.js"></script>
+    <script src="main.js"></script>
+    
+
+    
+    
+
+    <style>
+
+        .Numbers
+        {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            margin: 1px;
+            padding: 6px 6px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            
+        }
+        #map { 
+            position: absolute;
+            width: 500px;
+            height: 500px; 
+        }
+
+        #plot {
+            position: absolute;
+            left: 42%;
+            width: 50%;
+            height: 90%; 
+        }
+    </style>
+
+</head>
+<body>
+
+   
+        <div> Community Areas:</div>
+        <div id = "Num">
+        
+        </div>
+
+
+
+
+
+
+    <div id="map">
+        
+
+    </div>
+    <div id="plot">
+        
+        <div id = "bar">
+
+        </div>
+        
+</body>
+
+</html>
