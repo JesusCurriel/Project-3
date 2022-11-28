@@ -122,7 +122,9 @@ function getData(ListOfCommunities, TaxiCompanies, Data)
 }
 
 var highestVal = Math.max.apply(null, Object.values(AllCompanyData))
-
+var colorScale = d3.scaleQuantize()
+            .range(colorbrewer.GnBu[9])
+            .domain([0, 1000]);
 ElementsClicked = []
 
 function createMap() {
@@ -134,9 +136,7 @@ function createMap() {
     function style(feature) {
         
 
-        var colorScale = d3.scaleQuantize()
-            .range(colorbrewer.GnBu[9])
-            .domain([0, 1000]);
+        
         
        
         
@@ -172,7 +172,16 @@ function createMap() {
 
       if ( !ElementsClicked.includes(e.target.feature.properties.objectid))
       {
-        geojson.resetStyle(e.target);
+        var layer = e.target;
+        layer.setStyle({
+            fillColor: colorScale(CA[e.target.feature.properties.objectid]['Total_Combined']),
+            weight: 1,
+            opacity: 1,
+            dashArray: '0',
+            color: "gray",
+            fillOpacity: .6
+      });
+       
         document.getElementById(e.target.feature.properties.objectid).style.backgroundColor = "#4CAF50"
         document.getElementById(e.target.feature.properties.objectid).style.color = "white"
         
@@ -349,6 +358,7 @@ svg.append("g")
         getDensityData(Data,Empty)
         OLD = CA
         max = 0
+        CA = Empty
         Object.values(Empty).forEach(entry => {
 
           if(entry['Total_Combined'] > max)

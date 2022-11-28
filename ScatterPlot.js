@@ -144,12 +144,8 @@ function brush(cell, circle, svg) {
   }
 
 
-
-
-
-
 //xAxis 
-xAxis = function(){
+function xAxis(g){
     const axis = d3.axisBottom()
         .ticks(6)
         .tickSize(size * data_columns.length);
@@ -162,7 +158,7 @@ xAxis = function(){
 
 
 //y Axis
-yAxis = function(){
+function yAxis(g){
     const axis = d3.axisLeft()
         .ticks(6)
         .tickSize(-size * data_columns.length);
@@ -189,10 +185,10 @@ yAxis = function(){
         .text(`circle.hidden { fill: #000; fill-opacity: 1; r: 1px; }`);
   
     svg.append("g")
-        .call(xAxis);
+        .call(xAxis(this));
   
     svg.append("g")
-        .call(yAxis);
+        .call((yAxis(this)));
     
 
     
