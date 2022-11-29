@@ -23,7 +23,7 @@ Companies.forEach(element =>
 
 CA = []
 OLD = []
-
+Flag = 0
 
 
 function getTotal(d, attribute, value)
@@ -152,25 +152,32 @@ function createMap() {
     }
     
     function highlightFeature(e) {
+
         var layer = e.target;
+
+      if(Flag == 0)
+      {
         layer.setStyle({
           weight: 5,
           dashArray: '',
           fillOpacity: 0.7
       });
+      layer.bringToFront();
+      if(!ElementsClicked.includes(e.target.feature.properties.objectid))
+  {
+      document.getElementById(e.target.feature.properties.objectid).style.backgroundColor = "#66BCF2"
+      document.getElementById(e.target.feature.properties.objectid).style.color = "white"
+  }
+      }
+        
     
-        layer.bringToFront();
-        if(!ElementsClicked.includes(e.target.feature.properties.objectid))
-    {
-        document.getElementById(e.target.feature.properties.objectid).style.backgroundColor = "#66BCF2"
-        document.getElementById(e.target.feature.properties.objectid).style.color = "white"
-    }
+       
         
     }
 
     function resetHighlight(e) {
 
-      if ( !ElementsClicked.includes(e.target.feature.properties.objectid))
+      if ( !ElementsClicked.includes(e.target.feature.properties.objectid) && Flag == 0)
       {
         var layer = e.target;
         layer.setStyle({
@@ -331,6 +338,8 @@ svg.append("g")
       
       if(d3.select(this).attr("fill") != "#2A536E" )
       {
+        Flag = 0
+        console.log(ElementsClicked)
         for(let i = 1; i < 78; i++)
         {
 
@@ -340,6 +349,13 @@ svg.append("g")
                 
                 layer.setStyle({fillColor: colorScale(CA[i]['Total_Combined'])}) 
                 
+            }
+
+        
+            if(ElementsClicked.includes(layer._leaflet_id))
+            {
+              console.log("true")
+              layer.setStyle({fillColor: "blue"})
             }
            
             
@@ -358,7 +374,6 @@ svg.append("g")
         getDensityData(Data,Empty)
         OLD = CA
         max = 0
-        CA = Empty
         Object.values(Empty).forEach(entry => {
 
           if(entry['Total_Combined'] > max)
@@ -369,7 +384,7 @@ svg.append("g")
             
           })
         console.log(max)
-
+        Flag = 1
         newcolorScale = d3.scaleQuantize()
             .range(colorbrewer.PuRd[9])
             .domain([0,Math.max(1,max)]);
@@ -401,7 +416,7 @@ svg.append("g")
 
     })
     .on("mouseover", function(d, i) {
-      tooltip.html(`${i[1]}`).style("visibility", "visible");
+      tooltip.html(`Total Taxi Trips: ${i[1]}`).style("visibility", "visible");
       if(d3.select(this).attr("fill") != "gray")
       {
 
