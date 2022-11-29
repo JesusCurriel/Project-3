@@ -148,7 +148,7 @@ Website:
 All previous plots were then grouped together in a website, developed thanks the usage of Visual Code and Netlify. A starting interface allow the user to select between the three different plots. Once a plot is selected, is given the possibility to go back to the starting interface. The link is the following: https://424-jesus-davide.netlify.app/
 In the following images are shown the pages of the website with the related plots. 
 
-![Attributes](Plots/website.gif)
+![Attributes](Plots/Website.gif)
 
 Conclusion:
 Thanks to the visualizations proposed we were able to answer to the questions introduced at the beginning.
