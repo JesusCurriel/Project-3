@@ -179,7 +179,7 @@ function yAxis(g){
     console.log(d3.select("*"))
     console.log(d3.select("body"))
     var svg = d3.select("body").append('svg')
-      .attr("viewBox", [-padding -300, -60, 1000, 1000]);
+      .attr("viewBox", [-padding -600, -100, 2200, 2200]);
   
     svg.append("style")
         .text(`circle.hidden { fill: #000; fill-opacity: 1; r: 1px; }`);
